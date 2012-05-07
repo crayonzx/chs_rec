@@ -114,10 +114,10 @@ try_update_binary(const char *path, ZipArchive *zip) {
         const ZipEntry* update_script_entry =
                 mzFindZipEntry(zip, ASSUMED_UPDATE_SCRIPT_NAME);
         if (update_script_entry != NULL) {
-            ui_print("²»ÔÙÖ§³ÖAmend½Å±¾£¨update-script£©\n");
-            ui_print("Amend½Å±¾ÓÉGoogle´ÓAndroid 1.5¿ªÊ¼²»ÔÙÔŞ³ÉÊ¹ÓÃ\n");
-            ui_print("Éı¼¶µ½»ùÓÚ½ª±ıÏµÍ³CWM 3.0 recoveryÒÔºóĞèÒªÉ¾³ıËü\n");
-            ui_print("ÖÆ×÷¿ÉÓÃµÄ¹Ì¼şÉı¼¶°üÊ±Çë×ª»»µ½Edify½Å±¾£¨updater-scriptºÍupdate-binary£©\n");
+            ui_print("ä¸å†æ”¯æŒAmendè„šæœ¬ï¼ˆupdate-scriptï¼‰\n");
+            ui_print("Amendè„šæœ¬ç”±Googleä»Android 1.5å¼€å§‹ä¸å†èµæˆä½¿ç”¨\n");
+            ui_print("å‡çº§åˆ°åŸºäºå§œé¥¼ç³»ç»ŸCWM 3.0 recoveryä»¥åéœ€è¦åˆ é™¤å®ƒ\n");
+            ui_print("åˆ¶ä½œå¯ç”¨çš„å›ºä»¶å‡çº§åŒ…æ—¶è¯·è½¬æ¢åˆ°Edifyè„šæœ¬ï¼ˆupdater-scriptå’Œupdate-binaryï¼‰\n");
             return INSTALL_UPDATE_BINARY_MISSING;
         }
 
@@ -338,7 +338,7 @@ static int
 really_install_package(const char *path)
 {
     ui_set_background(BACKGROUND_ICON_INSTALLING);
-    ui_print("ÕıÔÚ²éÕÒÉı¼¶°ü...\n");
+    ui_print("æ­£åœ¨æŸ¥æ‰¾å‡çº§åŒ…...\n");
     ui_show_indeterminate_progress();
     LOGI("Update location: %s\n", path);
 
@@ -347,7 +347,7 @@ really_install_package(const char *path)
         return INSTALL_CORRUPT;
     }
 
-    ui_print("ÕıÔÚ´ò¿ªÉı¼¶°ü...\n");
+    ui_print("æ­£åœ¨æ‰“å¼€å‡çº§åŒ…...\n");
 
     int err;
 
@@ -361,7 +361,7 @@ really_install_package(const char *path)
         LOGI("%d key(s) loaded from %s\n", numKeys, PUBLIC_KEYS_FILE);
 
         // Give verification half the progress bar...
-        ui_print("ÕıÔÚ¼ìÑéÉı¼¶°ü...\n");
+        ui_print("æ­£åœ¨æ£€éªŒå‡çº§åŒ…...\n");
         ui_show_progress(
                 VERIFICATION_PROGRESS_FRACTION,
                 VERIFICATION_PROGRESS_TIME);
@@ -386,7 +386,7 @@ really_install_package(const char *path)
 
     /* Verify and install the contents of the package.
      */
-    ui_print("ÕıÔÚ°²×°Éı¼¶°ü...\n");
+    ui_print("æ­£åœ¨å®‰è£…å‡çº§åŒ…...\n");
     return try_update_binary(path, &zip);
 }
 

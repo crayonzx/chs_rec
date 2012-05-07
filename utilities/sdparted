@@ -368,6 +368,7 @@ UpgradeExt() {
 		umount /system/sd > /dev/null 2>&1 >>"$LOGFILE"
 		"$CMTUNE2FS" -O extents,uninit_bg,dir_index "$EXTPATH" 2>&1 >>"$LOGFILE"
 		"$CME2FSCK" -fpDC0 "$EXTPATH" 2>&1 >>"$LOGFILE"
+		"$CME2FSCK" -fyDC0 "$EXTPATH" 2>&1 >>"$LOGFILE"
 		echo "done"
 	fi
 	echo

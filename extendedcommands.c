@@ -76,7 +76,7 @@ int install_zip(const char* packagefilepath)
         ui_print("安装终止\n");
         return 1;
     }
-    ui_set_background(BACKGROUND_ICON_NONE);
+    ui_set_background(BACKGROUND_ICON_CLOCKWORK);
     ui_print("\n安装完毕\n");
     return 0;
 }
