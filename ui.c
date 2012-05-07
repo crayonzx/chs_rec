@@ -189,6 +189,7 @@ static void draw_progress_locked()
             int pos = (int) (progress * width);
 
             if (pos > 0) {
+            	if (pos < 3) pos = 3;
                 gr_blit(gProgressBarFill, 0, 0, pos, height, dx, dy);
             }
             if (pos < width-1) {
