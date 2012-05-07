@@ -181,12 +181,15 @@ int try_mount(const char* device, const char* mount_point, const char* fs_type, 
         return -1;
     int ret = 0;
     if (fs_options == NULL) {
-        ret = mount(device, mount_point, fs_type,
-                       MS_NOATIME | MS_NODEV | MS_NODIRATIME, "");
+//        ret = mount(device, mount_point, fs_type,
+//                       MS_NOATIME | MS_NODEV | MS_NODIRATIME, "");
+        char mount_cmd[PATH_MAX];
+        sprintf(mount_cmd, "mount -t %s -o noatime,nodev,nodiratime %s %s", fs_type, device, mount_point);
+        ret = __system(mount_cmd);
     }
     else {
         char mount_cmd[PATH_MAX];
-        sprintf(mount_cmd, "mount -t %s -o%s %s %s", fs_type, fs_options, device, mount_point);
+        sprintf(mount_cmd, "mount -t %s -o %s %s %s", fs_type, fs_options, device, mount_point);
         ret = __system(mount_cmd);
     }
     if (ret == 0)

@@ -118,7 +118,7 @@ int ev_init(ev_callback input_cb, void *data)
             	if (!ioctl(fd, EVIOCGABS(ABS_Y), &touch_raw_y))
             		touch_yscale = ((float)(gr_fb_height()) / (float)(touch_raw_y.maximum - touch_raw_y.minimum + 1));
 
-//#ifdef DEBUG_TOUCHSCREEN
+#ifdef DEBUG_TOUCHSCREEN
             	// test: cat input_absinfo of touch screen
             	FILE *f = NULL;
             	f = fopen("/tmp/test_touchscreen.log", "aw");
@@ -130,7 +130,7 @@ int ev_init(ev_callback input_cb, void *data)
             	gr_font_size(&font_width, &font_height);
             	fprintf(f, "\nfont_width: %d, yfont_height: %d\n\n", font_width, font_height);
             	fclose(f);
-//#endif
+#endif
             }
 
             ev_fds[ev_count].fd = fd;
