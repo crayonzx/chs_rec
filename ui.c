@@ -484,6 +484,19 @@ static int input_callback(int fd, short revents, void *data)
         rel_sum = 0;
     }
 
+#ifdef DEBUG_TOUCHSCREEN
+    time_t ltime;
+    struct tm *ptm;
+    ltime = time(NULL);
+    ptm = localtime(&ltime);
+	FILE *f = NULL;
+	f = fopen("/tmp/input_callback.log", "aw");
+	fprintf(f, "[%02d:%02d:%02d] ev.type=%-4d ev.code=%-4d ev.value=%-4d x=%-4d y=%-4d\n",
+			ptm->tm_hour, ptm->tm_min, ptm->tm_sec,
+			ev.type, ev.code, ev.value, touch_x, touch_y);
+	fclose(f);
+#endif
+
 	int keyoffset_x = (gr_fb_width() - gr_get_width(surface)) / 2;
 	int keyoffset_y = gr_fb_height() - gr_get_height(surface);
     if (ev.type == EV_ABS && ev.code == 48 && ev.value != 0) {

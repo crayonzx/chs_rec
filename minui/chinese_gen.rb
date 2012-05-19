@@ -89,8 +89,8 @@ p.read
 p.close
 # gen a **huge** bitmap
 count -= s.length
-char_width = 15
-char_height = 30
+char_width = 13
+char_height = 24
 asc_width = char_width * s.length
 cjk_width = count * 2 * char_width
 img_width = asc_width + cjk_width
@@ -99,7 +99,7 @@ canvas = Image.new(img_width, img_height)
 # so, bitmap font is better...
 text = Draw.new
 text.gravity = WestGravity
-text.pointsize = 18
+text.pointsize = 24
 text.font = './DroidSansMono.ttf'
 p "painting basic ascii"
 for i in 0...96
