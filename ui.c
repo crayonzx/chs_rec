@@ -504,7 +504,8 @@ static int input_callback(int fd, short revents, void *data)
             in_touch = 1; //starting to track touch...
             reset_gestures();
         }
-    } else if (ev.type == EV_ABS && ev.code == 48 && ev.value == 0) {
+//    } else if (ev.type == EV_ABS && ev.code == 48 && ev.value == 0) {
+    } else if (ev.type == 1 && ev.value == 0) {
     	// ev.code = ABS_MT_TOUCH_MAJOR 0x30
 		// finger lifted! lets run with this
 #ifdef DEBUG_TOUCHSCREEN

@@ -1391,6 +1391,7 @@ int volume_main(int argc, char **argv) {
     return 0;
 }
 
+#ifndef BOARD_USES_RECOVERY_CHARGEMODE
 void handle_chargemode() {
     const char* filename = "/proc/cmdline";
     struct stat file_info;
@@ -1410,3 +1411,4 @@ void handle_chargemode() {
     if (strstr(file_data, "androidboot.mode=offmode_charging") != NULL)
         reboot(RB_POWER_OFF);
 }
+#endif

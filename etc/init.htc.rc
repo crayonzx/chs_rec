@@ -35,6 +35,7 @@ service choice_fn /sbin/choice_fn
     oneshot
 
 service recovery /sbin/recovery
+    disabled
 
 service power_test /sbin/power_test
     disabled
