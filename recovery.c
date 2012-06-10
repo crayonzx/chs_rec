@@ -284,12 +284,10 @@ finish_recovery(const char *send_intent) {
     copy_log_file(LAST_LOG_FILE, false);
     chmod(LAST_LOG_FILE, 0640);
 
-    //if (device_flash_type() == MTD) {
-        // Reset to mormal system boot so recovery won't cycle indefinitely.
-        struct bootloader_message boot;
-        memset(&boot, 0, sizeof(boot));
-        set_bootloader_message(&boot);
-    //}
+    // Reset to normal system boot so recovery won't cycle indefinitely.
+    struct bootloader_message boot;
+    memset(&boot, 0, sizeof(boot));
+    set_bootloader_message(&boot);
 
     // Remove the command file, so recovery won't repeat indefinitely.
     if (ensure_path_mounted(COMMAND_FILE) != 0 ||
@@ -409,7 +407,7 @@ copy_sideloaded_package(const char* original_path) {
 static char**
 prepend_title(char** headers) {
     char* title[] = { EXPAND(RECOVERY_VERSION),
-                      "by Crayon-板友固件小组",
+                      "by Crayon@it186",
                       "",
                       NULL };
 

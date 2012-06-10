@@ -88,13 +88,6 @@ char* INSTALL_MENU_ITEMS[] = {  "从外置SD卡选择zip刷机包",
                                 "切换签名检测状态",
                                 "切换高级脚本语言",
                                 NULL };
-//char* INSTALL_MENU_ITEMS[] = {  "从SD卡选择zip刷机包",
-//                                "从内置SD卡选择zip刷机包",
-//                                "选择SD卡中的update.zip",
-//                                "选择内置SD卡中的update.zip",
-//                                "切换签名检测状态",
-//                                "切换高级脚本语言",
-//                                NULL };
 #define ITEM_CHOOSE_ZIP       0
 #define ITEM_CHOOSE_ZIP_INT   1
 #define ITEM_APPLY_SDCARD     2
